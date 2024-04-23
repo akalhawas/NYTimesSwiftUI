@@ -9,9 +9,14 @@ import SwiftUI
 
 @main
 struct NYTimesSwiftUIApp: App {
+    @StateObject private var vm = HomeViewModel(articleAPIService: ArticleAPIServiceImp())
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            NavigationView {
+                ContentView()
+                    .environmentObject(vm)
+            }
         }
     }
 }

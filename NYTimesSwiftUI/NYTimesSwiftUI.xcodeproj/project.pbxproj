@@ -18,6 +18,9 @@
 		0D4470E12BD8686600EED238 /* NYTimesSwiftUI-QA.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 0D4470E02BD8686600EED238 /* NYTimesSwiftUI-QA.xcconfig */; };
 		0D4470E32BD8688200EED238 /* NYTimesSwiftUI-Prod.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 0D4470E22BD8688200EED238 /* NYTimesSwiftUI-Prod.xcconfig */; };
 		0D4470E62BD869DF00EED238 /* ConfigrationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D4470E52BD869DF00EED238 /* ConfigrationManager.swift */; };
+		0D4470EB2BD86B2600EED238 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D4470EA2BD86B2600EED238 /* NetworkManager.swift */; };
+		0D4470EE2BD86B6A00EED238 /* ArticleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D4470ED2BD86B6A00EED238 /* ArticleModel.swift */; };
+		0D4470F02BD86B9A00EED238 /* ArticleAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D4470EF2BD86B9A00EED238 /* ArticleAPIService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +56,9 @@
 		0D4470E22BD8688200EED238 /* NYTimesSwiftUI-Prod.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "NYTimesSwiftUI-Prod.xcconfig"; sourceTree = "<group>"; };
 		0D4470E42BD8699D00EED238 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		0D4470E52BD869DF00EED238 /* ConfigrationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigrationManager.swift; sourceTree = "<group>"; };
+		0D4470EA2BD86B2600EED238 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		0D4470ED2BD86B6A00EED238 /* ArticleModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleModel.swift; sourceTree = "<group>"; };
+		0D4470EF2BD86B9A00EED238 /* ArticleAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleAPIService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,10 +109,13 @@
 		0D4470922BD8613200EED238 /* NYTimesSwiftUI */ = {
 			isa = PBXGroup;
 			children = (
-				0D4470E42BD8699D00EED238 /* Info.plist */,
-				0D4470DD2BD867F400EED238 /* Configration */,
 				0D4470932BD8613200EED238 /* NYTimesSwiftUIApp.swift */,
 				0D4470952BD8613200EED238 /* ContentView.swift */,
+				0D4470E72BD86AE600EED238 /* Services */,
+				0D4470EC2BD86B5F00EED238 /* Model */,
+				0D4470E82BD86AF000EED238 /* Utilities */,
+				0D4470DD2BD867F400EED238 /* Configration */,
+				0D4470E42BD8699D00EED238 /* Info.plist */,
 				0D4470972BD8613400EED238 /* Assets.xcassets */,
 				0D4470992BD8613400EED238 /* Preview Content */,
 			);
@@ -147,6 +156,38 @@
 				0D4470E52BD869DF00EED238 /* ConfigrationManager.swift */,
 			);
 			path = Configration;
+			sourceTree = "<group>";
+		};
+		0D4470E72BD86AE600EED238 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				0D4470EF2BD86B9A00EED238 /* ArticleAPIService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		0D4470E82BD86AF000EED238 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				0D4470E92BD86AFD00EED238 /* NetworkManager */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		0D4470E92BD86AFD00EED238 /* NetworkManager */ = {
+			isa = PBXGroup;
+			children = (
+				0D4470EA2BD86B2600EED238 /* NetworkManager.swift */,
+			);
+			path = NetworkManager;
+			sourceTree = "<group>";
+		};
+		0D4470EC2BD86B5F00EED238 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				0D4470ED2BD86B6A00EED238 /* ArticleModel.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -282,6 +323,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0D4470EB2BD86B2600EED238 /* NetworkManager.swift in Sources */,
+				0D4470F02BD86B9A00EED238 /* ArticleAPIService.swift in Sources */,
+				0D4470EE2BD86B6A00EED238 /* ArticleModel.swift in Sources */,
 				0D4470E62BD869DF00EED238 /* ConfigrationManager.swift in Sources */,
 				0D4470962BD8613200EED238 /* ContentView.swift in Sources */,
 				0D4470942BD8613200EED238 /* NYTimesSwiftUIApp.swift in Sources */,
