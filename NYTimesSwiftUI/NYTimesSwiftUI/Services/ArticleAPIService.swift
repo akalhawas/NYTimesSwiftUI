@@ -9,15 +9,15 @@ import Foundation
 import Combine
 
 protocol ArticleAPIService {
-    func fetch<T: Codable>(type: T.Type) -> AnyPublisher<T,Error>
+    func fetchArticle() -> AnyPublisher<ArticleResponse,Error>
 }
 
 class ArticleAPIServiceImp: ArticleAPIService {
-    func fetch<T: Codable>(type: T.Type) -> AnyPublisher<T,Error> {
+    func fetchArticle() -> AnyPublisher<ArticleResponse,Error> {
         let urlString = "https://api.nytimes.com/svc/mostpopular/v2/emailed/1.json?api-key=n2G4UgyliHFmfxxENCyOst0RGDLOZFGN"
         let url = URL(string: urlString)!
         return NetworkingManager.download(url: url)
-            .decode (type: type,decoder: JSONDecoder())
+            .decode (type: ArticleResponse.self,decoder: JSONDecoder())
             .receive(on: RunLoop.main)
             .eraseToAnyPublisher()
     }

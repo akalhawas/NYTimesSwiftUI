@@ -77,17 +77,16 @@ private extension HomeView {
                     }
                 } else {
                     ForEach(vm.articles, id: \.id) { article in
-                        NavigationLink(destination: EmptyView()) {
+                        NavigationLink(destination: DetailView(article: article)) {
                             ListRow(title: "\(article.title)", icon: "newspaper")
                         }
                     }
                 }
             } else {
-                ProgressView() // while downloading
+                ProgressView()
             }
         }
         .padding(20)
-        .padding(.horizontal, 10)
     }
     
     var reloadIcon: some View {

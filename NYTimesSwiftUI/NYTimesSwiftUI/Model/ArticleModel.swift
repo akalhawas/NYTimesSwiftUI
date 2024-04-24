@@ -102,29 +102,33 @@ struct ArticleResponse: Codable {
 }
 
 struct ArticleModel: Codable {
-    let uri: String
-    let url: String
     let id, assetID: Int
     let source, publishedDate, updated, section: String
-    let subsection, nytdsection, adxKeywords: String
     let byline, type, title, abstract: String
-
+    let media: [MediaModel]
 
     enum CodingKeys: String, CodingKey {
-        case uri, url, id
+        case id
         case assetID = "asset_id"
         case source
         case publishedDate = "published_date"
-        case updated, section, subsection, nytdsection
-        case adxKeywords = "adx_keywords"
+        case updated, section
         case byline, type, title, abstract
+        case media
     }
 }
 
-struct ArticleParams: Encodable {
-    let apiKey: String
+// MARK: - Media
+struct MediaModel: Codable {
+    let mediaMetadata: [MediaMetadatumModel]
 
     enum CodingKeys: String, CodingKey {
-        case apiKey = "api-key"
+        case mediaMetadata = "media-metadata"
     }
+}
+
+// MARK: - MediaMetadatum
+struct MediaMetadatumModel: Codable {
+    let url: String
+    let format: String
 }

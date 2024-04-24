@@ -32,7 +32,7 @@ class HomeViewModel: ObservableObject {
         reset()
         viewState = .loading
         
-        articleAPIService.fetch(type: ArticleResponse.self)
+        articleAPIService.fetchArticle()
             .sink { [weak self] completion in
                 self?.handleCompletion(completion: completion)
             } receiveValue: { [weak self] (returnedArticles) in
