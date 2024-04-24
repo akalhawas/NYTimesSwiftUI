@@ -25,7 +25,7 @@
 		0D4470FD2BD873DD00EED238 /* ListRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D4470FC2BD873DD00EED238 /* ListRow.swift */; };
 		0D4471022BD8754500EED238 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D4471012BD8754500EED238 /* Log.swift */; };
 		0D44710B2BD8893400EED238 /* PreviewProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D44710A2BD8893400EED238 /* PreviewProvider.swift */; };
-		0D4471112BD8E4C000EED238 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D4471102BD8E4C000EED238 /* DetailView.swift */; };
+		0D4471132BD8E72F00EED238 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D4471122BD8E72F00EED238 /* DetailView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,7 +68,7 @@
 		0D4470FC2BD873DD00EED238 /* ListRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListRow.swift; sourceTree = "<group>"; };
 		0D4471012BD8754500EED238 /* Log.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
 		0D44710A2BD8893400EED238 /* PreviewProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewProvider.swift; sourceTree = "<group>"; };
-		0D4471102BD8E4C000EED238 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DetailView.swift; path = NYTimesSwiftUITests/DetailView.swift; sourceTree = SOURCE_ROOT; };
+		0D4471122BD8E72F00EED238 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -256,7 +256,7 @@
 		0D4471042BD8846000EED238 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				0D4471102BD8E4C000EED238 /* DetailView.swift */,
+				0D4471122BD8E72F00EED238 /* DetailView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -407,7 +407,7 @@
 				0D4471022BD8754500EED238 /* Log.swift in Sources */,
 				0D4470F02BD86B9A00EED238 /* ArticleAPIService.swift in Sources */,
 				0D4470FB2BD873C100EED238 /* HomeViewModel.swift in Sources */,
-				0D4471112BD8E4C000EED238 /* DetailView.swift in Sources */,
+				0D4471132BD8E72F00EED238 /* DetailView.swift in Sources */,
 				0D44710B2BD8893400EED238 /* PreviewProvider.swift in Sources */,
 				0D4470EE2BD86B6A00EED238 /* ArticleModel.swift in Sources */,
 				0D4470E62BD869DF00EED238 /* ConfigrationManager.swift in Sources */,

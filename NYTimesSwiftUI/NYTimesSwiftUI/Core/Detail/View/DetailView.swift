@@ -2,7 +2,7 @@
 //  DetailView.swift
 //  NYTimesSwiftUI
 //
-//  Created by ali alhawas on 14/10/1445 AH.
+//  Created by ali alhawas on 14/10/1445 AH
 //
 
 import SwiftUI
@@ -89,4 +89,3 @@ private extension DetailView {
         }
     }
 }
-
