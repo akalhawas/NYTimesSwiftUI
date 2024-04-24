@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct ListRow: View {
-    var title = "iOS Development"
-    var icon = "iphone"
+    var title = "Article"
+    var icon = "newspaper"
     
     var body: some View {
         HStack(spacing: 16) {

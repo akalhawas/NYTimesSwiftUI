@@ -9,9 +9,6 @@ import SwiftUI
 
 struct HomeView: View {
     @EnvironmentObject private var vm: HomeViewModel
-    
-    @State var alertTitle: String = "false"
-    @State var showAlert: Bool = false
 
     @State private var selectedAtricle: ArticleModel? = nil
     @State private var showDetailView: Bool = false
@@ -28,25 +25,6 @@ struct HomeView: View {
         }
         .navigationTitle("Articles".uppercased())
         .navigationBarItems(trailing: reloadIcon.opacity(vm.hasError ? 1 : 0))
-        .onAppear {
-            errorCheck()
-        }
-        .alert(isPresented: $showAlert, content: {
-            return Alert(title: Text(alertTitle))
-        })
-    }
-    
-    func errorCheck(){
-        if vm.hasError {
-            if vm.viewState == .finished {
-                showAlert(title: "\(vm.error!.errorDescription!)! 😩")
-            }
-        }
-    }
-    
-    func showAlert(title: String){
-        alertTitle = title
-        showAlert.toggle()
     }
 }
 
@@ -92,15 +70,10 @@ private extension HomeView {
     var reloadIcon: some View {
         Button(action: {
             vm.reloadData()
-            errorCheck()
         }, label: {
             Image(systemName: "arrow.clockwise")
         })
     }
     
-    private func segue(article: ArticleModel) {
-        selectedAtricle = article
-        showDetailView.toggle()
-    }
 }
 

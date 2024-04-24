@@ -14,7 +14,7 @@ protocol ArticleAPIService {
 
 class ArticleAPIServiceImp: ArticleAPIService {
     func fetchArticle() -> AnyPublisher<ArticleResponse,Error> {
-        let urlString = "https://api.nytimes.com/svc/mostpopular/v2/emailed/1.json?api-key=n2G4UgyliHFmfxxENCyOst0RGDLOZFGN"
+        let urlString = "https://\(API.baseURL)/svc/mostpopular/v2/emailed/1.json?api-key=n2G4UgyliHFmfxxENCyOst0RGDLOZFGN"
         let url = URL(string: urlString)!
         return NetworkingManager.download(url: url)
             .decode (type: ArticleResponse.self,decoder: JSONDecoder())

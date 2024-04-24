@@ -21,7 +21,6 @@ class HomeViewModel: ObservableObject {
     @Published private(set) var viewState: ViewState?
         
     var isLoading: Bool { viewState == .loading }
-    var isFetching: Bool { viewState == .fetching }
     
     init(articleAPIService: ArticleAPIService) {
         self.articleAPIService = articleAPIService
@@ -62,7 +61,7 @@ class HomeViewModel: ObservableObject {
 
 extension HomeViewModel {
     enum ViewState {
-        case fetching, loading, finished
+        case loading, finished
     }
 }
 

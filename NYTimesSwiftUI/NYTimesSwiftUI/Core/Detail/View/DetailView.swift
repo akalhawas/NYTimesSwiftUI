@@ -75,7 +75,6 @@ private extension DetailView {
                     Text(article.title)
                         .font(.title2).bold()
                         .frame(maxWidth: .infinity, alignment: .leading)
-//                    Divider()
                     Text(article.abstract)
                 }
                 .padding([.leading, .trailing], 10)
