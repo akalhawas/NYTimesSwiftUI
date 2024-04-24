@@ -20,10 +20,9 @@ struct ListRow: View {
             Text(title)
                 .fontWeight(.semibold)
                 .multilineTextAlignment(.leading)
-//                .frame(maxWidth: .infinity, alignment: .leading)
             Spacer()
         }
-        .foregroundColor(.black)
+        .foregroundColor(.primary)
     }
 }
 

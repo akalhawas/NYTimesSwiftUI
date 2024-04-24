@@ -13,8 +13,7 @@ class NetworkingManager:ObservableObject {
     static func download(url: URL) -> AnyPublisher<Data,Error> {
         return URLSession.shared.dataTaskPublisher(for: url)
             .tryMap({ try handleURLResponse(output: $0)})
-//            .retry(3)
-            .receive(on: DispatchQueue.main) // return to main thread after decode in each data service that would be better
+            .receive(on: DispatchQueue.main)
             .eraseToAnyPublisher()
     }
     
@@ -27,15 +26,7 @@ class NetworkingManager:ObservableObject {
         }
         return output.data
     }
-    
-    static func handleCompletion(completion: Subscribers.Completion<Error>){
-        switch completion {
-            case .finished: break
-            case .failure(let error): print(error.localizedDescription)
-        }
-    }
 }
-
 
 extension NetworkingManager {
     enum NetworkingError: LocalizedError {
@@ -71,6 +62,26 @@ extension NetworkingManager.NetworkingError {
             case 429: return "You have exceeded the rate limit"
             case 500: return "Server Error"
             default: return "Unknown Error"
+        }
+    }
+}
+
+// MARK: Networking Error Equatable
+extension NetworkingManager.NetworkingError: Equatable {
+    static func == (lhs: NetworkingManager.NetworkingError, rhs: NetworkingManager.NetworkingError) -> Bool {
+        switch(lhs, rhs) {
+            case (.invalidUrl, .invalidUrl):
+                return true
+            case (.custom(let lhsType), .custom(let rhsType)):
+                return lhsType.localizedDescription == rhsType.localizedDescription
+            case (.invalidStatusCode(let lhsType), .invalidStatusCode(let rhsType)):
+                return lhsType == rhsType
+            case (.invalidData, .invalidData):
+                return true
+            case (.failedToDecode, .failedToDecode):
+                return true
+            default:
+                return false
         }
     }
 }

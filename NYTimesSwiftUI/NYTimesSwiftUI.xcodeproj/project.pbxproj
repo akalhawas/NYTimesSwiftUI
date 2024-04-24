@@ -19,13 +19,16 @@
 		0D4470E62BD869DF00EED238 /* ConfigrationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D4470E52BD869DF00EED238 /* ConfigrationManager.swift */; };
 		0D4470EB2BD86B2600EED238 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D4470EA2BD86B2600EED238 /* NetworkManager.swift */; };
 		0D4470EE2BD86B6A00EED238 /* ArticleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D4470ED2BD86B6A00EED238 /* ArticleModel.swift */; };
-		0D4470F02BD86B9A00EED238 /* ArticleAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D4470EF2BD86B9A00EED238 /* ArticleAPIService.swift */; };
 		0D4470F92BD873B500EED238 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D4470F82BD873B500EED238 /* HomeView.swift */; };
 		0D4470FB2BD873C100EED238 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D4470FA2BD873C100EED238 /* HomeViewModel.swift */; };
 		0D4470FD2BD873DD00EED238 /* ListRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D4470FC2BD873DD00EED238 /* ListRow.swift */; };
 		0D4471022BD8754500EED238 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D4471012BD8754500EED238 /* Log.swift */; };
 		0D44710B2BD8893400EED238 /* PreviewProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D44710A2BD8893400EED238 /* PreviewProvider.swift */; };
 		0D4471132BD8E72F00EED238 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D4471122BD8E72F00EED238 /* DetailView.swift */; };
+		0D4471172BD92BA600EED238 /* HomeViewModel_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D4471162BD92BA600EED238 /* HomeViewModel_Tests.swift */; };
+		0D44711B2BD9741300EED238 /* MockArticleAPIServiceImp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D44711A2BD9741300EED238 /* MockArticleAPIServiceImp.swift */; };
+		0D44711D2BD9745400EED238 /* ArticleAPIServiceImp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D44711C2BD9745400EED238 /* ArticleAPIServiceImp.swift */; };
+		0D4471212BD9750A00EED238 /* MockArticleAPIServiceImp_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D4471202BD9750A00EED238 /* MockArticleAPIServiceImp_Tests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,13 +65,16 @@
 		0D4470E52BD869DF00EED238 /* ConfigrationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigrationManager.swift; sourceTree = "<group>"; };
 		0D4470EA2BD86B2600EED238 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		0D4470ED2BD86B6A00EED238 /* ArticleModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleModel.swift; sourceTree = "<group>"; };
-		0D4470EF2BD86B9A00EED238 /* ArticleAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleAPIService.swift; sourceTree = "<group>"; };
 		0D4470F82BD873B500EED238 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		0D4470FA2BD873C100EED238 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		0D4470FC2BD873DD00EED238 /* ListRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListRow.swift; sourceTree = "<group>"; };
 		0D4471012BD8754500EED238 /* Log.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
 		0D44710A2BD8893400EED238 /* PreviewProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewProvider.swift; sourceTree = "<group>"; };
 		0D4471122BD8E72F00EED238 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
+		0D4471162BD92BA600EED238 /* HomeViewModel_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel_Tests.swift; sourceTree = "<group>"; };
+		0D44711A2BD9741300EED238 /* MockArticleAPIServiceImp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockArticleAPIServiceImp.swift; sourceTree = "<group>"; };
+		0D44711C2BD9745400EED238 /* ArticleAPIServiceImp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleAPIServiceImp.swift; sourceTree = "<group>"; };
+		0D4471202BD9750A00EED238 /* MockArticleAPIServiceImp_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockArticleAPIServiceImp_Tests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -145,6 +151,8 @@
 			isa = PBXGroup;
 			children = (
 				0D4470A42BD8613500EED238 /* NYTimesSwiftUITests.swift */,
+				0D4471162BD92BA600EED238 /* HomeViewModel_Tests.swift */,
+				0D4471202BD9750A00EED238 /* MockArticleAPIServiceImp_Tests.swift */,
 			);
 			path = NYTimesSwiftUITests;
 			sourceTree = "<group>";
@@ -172,7 +180,8 @@
 		0D4470E72BD86AE600EED238 /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				0D4470EF2BD86B9A00EED238 /* ArticleAPIService.swift */,
+				0D44711C2BD9745400EED238 /* ArticleAPIServiceImp.swift */,
+				0D44711A2BD9741300EED238 /* MockArticleAPIServiceImp.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -205,9 +214,9 @@
 		0D4470F22BD8736600EED238 /* Core */ = {
 			isa = PBXGroup;
 			children = (
-				0D4471032BD8845A00EED238 /* Detail */,
 				0D4470F52BD8739700EED238 /* Components */,
 				0D4470F32BD8738D00EED238 /* Home */,
+				0D4471032BD8845A00EED238 /* Detail */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -405,7 +414,8 @@
 				0D4470EB2BD86B2600EED238 /* NetworkManager.swift in Sources */,
 				0D4470F92BD873B500EED238 /* HomeView.swift in Sources */,
 				0D4471022BD8754500EED238 /* Log.swift in Sources */,
-				0D4470F02BD86B9A00EED238 /* ArticleAPIService.swift in Sources */,
+				0D44711B2BD9741300EED238 /* MockArticleAPIServiceImp.swift in Sources */,
+				0D44711D2BD9745400EED238 /* ArticleAPIServiceImp.swift in Sources */,
 				0D4470FB2BD873C100EED238 /* HomeViewModel.swift in Sources */,
 				0D4471132BD8E72F00EED238 /* DetailView.swift in Sources */,
 				0D44710B2BD8893400EED238 /* PreviewProvider.swift in Sources */,
@@ -421,6 +431,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				0D4470A52BD8613500EED238 /* NYTimesSwiftUITests.swift in Sources */,
+				0D4471172BD92BA600EED238 /* HomeViewModel_Tests.swift in Sources */,
+				0D4471212BD9750A00EED238 /* MockArticleAPIServiceImp_Tests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -501,7 +513,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -529,6 +541,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -627,7 +640,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
@@ -654,6 +667,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -758,7 +772,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -786,6 +800,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -890,7 +905,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -918,6 +933,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1016,7 +1032,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
@@ -1043,6 +1059,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1141,7 +1158,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
@@ -1168,6 +1185,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

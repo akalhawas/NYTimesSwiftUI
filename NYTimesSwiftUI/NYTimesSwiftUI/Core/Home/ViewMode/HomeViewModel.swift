@@ -11,16 +11,16 @@ import Combine
 class HomeViewModel: ObservableObject {
         
     @Published var articles: [ArticleModel] = []
+    @Published private(set) var error: NetworkingManager.NetworkingError?
+    
+    @Published private(set) var hasError = false
+    @Published private(set) var viewState: ViewState?
+    @Published private(set) var imageUrl: String?
+        
+    var isLoading: Bool { viewState == .loading }
     
     private let articleAPIService: ArticleAPIService
     private var subscribers = Set<AnyCancellable>()
-    
-    @Published private(set) var error: NetworkingManager.NetworkingError?
-    @Published var hasError = false
-    
-    @Published private(set) var viewState: ViewState?
-        
-    var isLoading: Bool { viewState == .loading }
     
     init(articleAPIService: ArticleAPIService) {
         self.articleAPIService = articleAPIService
@@ -36,7 +36,7 @@ class HomeViewModel: ObservableObject {
                 self?.handleCompletion(completion: completion)
             } receiveValue: { [weak self] (returnedArticles) in
                 self?.viewState = .finished
-                self?.articles = returnedArticles.results
+                self?.articles = returnedArticles
             }.store(in: &subscribers)
     }
     

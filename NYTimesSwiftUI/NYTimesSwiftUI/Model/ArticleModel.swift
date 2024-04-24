@@ -107,6 +107,17 @@ struct ArticleModel: Codable {
     let byline, type, title, abstract: String
     let media: [MediaModel]
 
+    
+    var imageUrl440: String {
+        guard let mediaMetadata = media.first?.mediaMetadata else { return "" }
+        
+        if let image440 = mediaMetadata.first(where: {$0.format == "mediumThreeByTwo440" || $0.width == 440}) {
+            return image440.url
+        } else {
+            return ""
+        }
+    }
+    
     enum CodingKeys: String, CodingKey {
         case id
         case assetID = "asset_id"
@@ -131,4 +142,6 @@ struct MediaModel: Codable {
 struct MediaMetadatumModel: Codable {
     let url: String
     let format: String
+    let width: Int
+    let height: Int
 }

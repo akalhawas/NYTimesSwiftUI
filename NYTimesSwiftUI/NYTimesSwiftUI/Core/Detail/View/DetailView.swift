@@ -21,30 +21,6 @@ struct DetailView: View {
             .navigationBarTitleDisplayMode(.inline)
         }
     }
-    
-    var headerImage: some View {
-        Section {
-            if let media = article.media.first {
-                if let image440 = media.mediaMetadata.first(where: {$0.format == "mediumThreeByTwo440"}) {
-                    AsyncImage(url: URL(string: image440.url)){ image in
-                        image
-                            .resizable()
-                            .aspectRatio(contentMode: .fill)
-                    } placeholder: {
-                        Rectangle()
-                            .fill(.ultraThinMaterial)
-                            .frame(maxHeight: 293)
-                            .overlay {
-                                ProgressView()
-                            }
-                    }
-                } else {
-                    Rectangle()
-                        .frame(maxHeight: 293)
-                }
-            }
-        }
-    }
 }
 
 #Preview {
@@ -56,6 +32,23 @@ private extension DetailView {
     
     var background: some View {
         Color.white.ignoresSafeArea()
+    }
+    
+    var headerImage: some View {
+        Section {
+            AsyncImage(url: URL(string: article.imageUrl440)){ image in
+                image
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
+            } placeholder: {
+                Rectangle()
+                    .fill(.ultraThinMaterial)
+                    .frame(maxHeight: 293)
+                    .overlay {
+                        ProgressView()
+                    }
+            }
+        }
     }
     
     var content: some View {
@@ -71,10 +64,9 @@ private extension DetailView {
             Divider()
 
             ScrollView {
-                VStack(spacing: 10) {
+                VStack(alignment: .leading,spacing: 10) {
                     Text(article.title)
                         .font(.title2).bold()
-                        .frame(maxWidth: .infinity, alignment: .leading)
                     Text(article.abstract)
                 }
                 .padding([.leading, .trailing], 10)
