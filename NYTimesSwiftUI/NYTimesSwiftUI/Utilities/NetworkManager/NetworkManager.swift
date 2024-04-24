@@ -21,6 +21,8 @@ class NetworkingManager:ObservableObject {
     static func handleURLResponse(output: URLSession.DataTaskPublisher.Output) throws -> Data {
         guard let response = output.response as? HTTPURLResponse, (200...300) ~= response.statusCode else {
             let statusCode = (output.response as! HTTPURLResponse).statusCode
+            Log.statusCode(statusCode)
+            Log.error("\(NetworkingError.invalidStatusCode(statusCode: statusCode).localizedDescription)")
             throw NetworkingError.invalidStatusCode(statusCode: statusCode)
         }
         return output.data
