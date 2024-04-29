@@ -10,24 +10,34 @@ import Combine
 
 class NetworkingManager:ObservableObject {
 
+    /// Processing URL session data task results with Combine
+    /// - Parameter url: URL
+    /// - Returns: AnyPublisher<Data,Error>
     static func download(url: URL) -> AnyPublisher<Data,Error> {
         return URLSession.shared.dataTaskPublisher(for: url)
-            .tryMap({ try handleURLResponse(output: $0)})
+            .timeout(.seconds(8), scheduler: DispatchQueue.main)
+            .tryMap(handleURLResponse)
             .receive(on: DispatchQueue.main)
             .eraseToAnyPublisher()
     }
     
+    /// Handle URL response returns Data -> throws error if bad response
+    /// - Parameter output: URLSession.DataTaskPublisher.Output
+    /// - Returns: Data
+    /// - Note: Throws error if bad response
     static func handleURLResponse(output: URLSession.DataTaskPublisher.Output) throws -> Data {
         guard let response = output.response as? HTTPURLResponse, (200...300) ~= response.statusCode else {
             let statusCode = (output.response as! HTTPURLResponse).statusCode
-            Log.statusCode(statusCode)
+            #if DEV
             Log.error("\(NetworkingError.invalidStatusCode(statusCode: statusCode).localizedDescription)")
+            #endif
             throw NetworkingError.invalidStatusCode(statusCode: statusCode)
         }
         return output.data
     }
 }
 
+// MARK: Networking Error
 extension NetworkingManager {
     enum NetworkingError: LocalizedError {
         case invalidUrl
@@ -35,21 +45,21 @@ extension NetworkingManager {
         case invalidStatusCode(statusCode: Int)
         case invalidData
         case failedToDecode
+        
+        var errorDescription: String? {
+            switch self {
+                case .invalidUrl: return "URL isn't valid"
+                case .invalidStatusCode(let code): return handleResponse(code)
+                case .invalidData: return "Response data is invalid"
+                case .failedToDecode: return "Failed to decode"
+                case .custom(let err): return "Something went wrong \(err.localizedDescription)"
+            }
+        }
     }
 }
 
-// MARK: Networking Error
+// MARK: Networking Error handleResponse
 extension NetworkingManager.NetworkingError {
-    var errorDescription: String? {
-        switch self {
-            case .invalidUrl: return "URL isn't valid"
-            case .invalidStatusCode(let code): return handleResponse(code)
-            case .invalidData: return "Response data is invalid"
-            case .failedToDecode: return "Failed to decode"
-            case .custom(let err): return "Something went wrong \(err.localizedDescription)"
-        }
-    }
-    
     /// Parses a HTTP StatusCode and returns a proper error
     /// - Parameter statusCode: HTTP status code
     /// - Returns: String

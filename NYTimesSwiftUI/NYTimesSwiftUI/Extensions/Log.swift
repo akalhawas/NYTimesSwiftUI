@@ -8,7 +8,7 @@
 import Foundation
 
 enum Log {
-    enum LogLevel {
+    fileprivate enum LogLevel {
         case info
         case warning
         case error
@@ -22,7 +22,7 @@ enum Log {
         }
     }
     
-    struct Context {
+    fileprivate struct Context {
         let file: String
         let function: String
         let line: Int
@@ -60,11 +60,15 @@ enum Log {
     }
     
     static func statusCode(_ statusCode: Int) {
-        
         #if DEV
         print("[\(statusCode)]")
         #endif
-
+    }
+    
+    static func environment(){
+        #if DEV
+        print("DEBUG: Environment = \(ConfigrationManager.environment)")
+        #endif
     }
 }
 

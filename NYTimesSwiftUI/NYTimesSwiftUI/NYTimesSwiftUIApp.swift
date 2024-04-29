@@ -18,7 +18,7 @@ struct NYTimesSwiftUIApp: App {
                     .environmentObject(vm)
             }
             .onAppear{
-                print("DEBUG: Environment = \(ConfigrationManager.environment)")
+                Log.environment()
             }
         }
     }

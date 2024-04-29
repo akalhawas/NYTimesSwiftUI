@@ -73,7 +73,7 @@ final class MockArticleAPIServiceImp_Tests: XCTestCase {
         // When
         var articles: [ArticleModel] = []
         let expectation = XCTestExpectation(description: "Does throw an error")
-        let expectation2 = XCTestExpectation(description: "Does throw an URLReeoe.badServerResponse")
+        let expectation2 = XCTestExpectation(description: "Does throw an NetworkingManager.NetworkingError.invalidData")
         
         articleService.fetchArticle()
             .sink { completion in

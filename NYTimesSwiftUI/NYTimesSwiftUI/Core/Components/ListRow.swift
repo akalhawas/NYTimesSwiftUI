@@ -8,8 +8,10 @@
 import SwiftUI
 
 struct ListRow: View {
+    
     var title = "Article"
     var icon = "newspaper"
+    var hasNoImage = true
     
     var body: some View {
         HStack(spacing: 16) {
@@ -22,7 +24,7 @@ struct ListRow: View {
                 .multilineTextAlignment(.leading)
             Spacer()
         }
-        .foregroundColor(.primary)
+        .foregroundColor(hasNoImage ? .gray : .primary)
     }
 }
 

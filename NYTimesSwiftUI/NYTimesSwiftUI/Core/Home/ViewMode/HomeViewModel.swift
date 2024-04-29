@@ -11,22 +11,24 @@ import Combine
 class HomeViewModel: ObservableObject {
         
     @Published var articles: [ArticleModel] = []
-    @Published private(set) var error: NetworkingManager.NetworkingError?
     
+    @Published private(set) var error: NetworkingManager.NetworkingError?
     @Published private(set) var hasError = false
     @Published private(set) var viewState: ViewState?
-    @Published private(set) var imageUrl: String?
-        
-    var isLoading: Bool { viewState == .loading }
-    
+            
     private let articleAPIService: ArticleAPIService
     private var subscribers = Set<AnyCancellable>()
+
+    var isLoading: Bool { viewState == .loading }
     
     init(articleAPIService: ArticleAPIService) {
         self.articleAPIService = articleAPIService
         addSubscribers()
     }
-    
+}
+
+// MARK: HomeViewModel
+extension HomeViewModel {
     func addSubscribers(){
         reset()
         viewState = .loading
@@ -40,7 +42,18 @@ class HomeViewModel: ObservableObject {
             }.store(in: &subscribers)
     }
     
-    func handleCompletion(completion: Subscribers.Completion<Error>){
+    enum ViewState {
+        case loading, finished
+    }
+    
+    func reloadData(){
+        addSubscribers()
+    }
+}
+
+// MARK: HomeViewModel Private Func
+private extension HomeViewModel {
+    private func handleCompletion(completion: Subscribers.Completion<Error>){
         switch completion {
             case .finished: break
             case .failure(let error):
@@ -54,18 +67,6 @@ class HomeViewModel: ObservableObject {
         }
     }
     
-    func reloadData(){
-        addSubscribers()
-    }
-}
-
-extension HomeViewModel {
-    enum ViewState {
-        case loading, finished
-    }
-}
-
-private extension HomeViewModel {
     private func reset() {
         if viewState == .finished {
             articles.removeAll()

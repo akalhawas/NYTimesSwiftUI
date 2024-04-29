@@ -15,7 +15,6 @@ struct DetailView: View {
             VStack {
                 headerImage
                 content
-                Spacer()
             }
             .navigationTitle(article.section)
             .navigationBarTitleDisplayMode(.inline)
@@ -24,44 +23,61 @@ struct DetailView: View {
 }
 
 #Preview {
-    let article = DeveloperPreview.instance.article
-    return DetailView(article: article)
+    return DetailView(article: DeveloperPreview.instance.article)
 }
 
 private extension DetailView {
-    
-    var background: some View {
-        Color.white.ignoresSafeArea()
-    }
-    
     var headerImage: some View {
-        Section {
-            AsyncImage(url: URL(string: article.imageUrl440)){ image in
-                image
-                    .resizable()
-                    .aspectRatio(contentMode: .fill)
-            } placeholder: {
-                Rectangle()
-                    .fill(.ultraThinMaterial)
-                    .frame(maxHeight: 293)
-                    .overlay {
-                        ProgressView()
+        VStack {
+            if !article.imageUrl440.isEmpty {
+                AsyncImage(url: URL(string: article.imageUrl440)) { image in
+                    switch image {
+                        case .empty:
+                            Rectangle()
+                                .fill(.ultraThinMaterial)
+                                .frame(maxHeight: 300)
+                                .overlay { ProgressView() }
+                        case .success(let image):
+                            image
+                                .resizable()
+                                .aspectRatio(contentMode: .fill)
+                        case .failure( _):
+                            Image("emptyState")
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                                .frame(maxHeight: 300)
+                        @unknown default:
+                            Image("emptyState")
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                                .frame(maxHeight: 300)
                     }
+                }
+            } else {
+                Image("emptyState")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(maxHeight: 300)
             }
+ 
         }
     }
     
     var content: some View {
         VStack(alignment: .leading) {
-            HStack {
-                Text(article.publishedDate)
-                    .foregroundStyle(.secondary)
-                Spacer()
-                Text(article.source)
-                    .foregroundStyle(.secondary)
+            
+            VStack {
+                HStack {
+                    Text(article.publishedDate)
+                        .foregroundStyle(.secondary)
+                    Spacer()
+                    Text(article.source)
+                        .foregroundStyle(.secondary)
+                }
+                Divider()
             }
             .padding([.leading, .trailing], 10)
-            Divider()
+            
 
             ScrollView {
                 VStack(alignment: .leading,spacing: 10) {
@@ -76,6 +92,7 @@ private extension DetailView {
                 Spacer()
                 Text(article.byline)
                     .foregroundStyle(.secondary)
+                    .lineLimit(2)
             }
             .padding([.leading, .trailing], 10)
         }

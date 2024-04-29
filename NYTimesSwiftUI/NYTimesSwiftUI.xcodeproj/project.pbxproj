@@ -198,7 +198,6 @@
 			isa = PBXGroup;
 			children = (
 				0D4470EA2BD86B2600EED238 /* NetworkManager.swift */,
-				0D4471012BD8754500EED238 /* Log.swift */,
 			);
 			path = NetworkManager;
 			sourceTree = "<group>";
@@ -274,6 +273,7 @@
 			isa = PBXGroup;
 			children = (
 				0D44710A2BD8893400EED238 /* PreviewProvider.swift */,
+				0D4471012BD8754500EED238 /* Log.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
