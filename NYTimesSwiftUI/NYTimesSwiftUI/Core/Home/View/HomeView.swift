@@ -55,7 +55,7 @@ private extension HomeView {
                 } else {
                     ForEach(vm.articles, id: \.id) { article in
                         NavigationLink(destination: DetailView(article: article)) {
-                            ListRow(title: "\(article.title)", icon: "newspaper", hasNoImage: article.imageUrl440.isEmpty)
+                            ListRow(title: "\(article.title)", icon: "newspaper", hasImage: !article.imageUrl440.isEmpty)
                         }
                     }
                 }

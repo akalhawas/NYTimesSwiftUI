@@ -11,7 +11,7 @@ struct ListRow: View {
     
     var title = "Article"
     var icon = "newspaper"
-    var hasNoImage = true
+    var hasImage = true
     
     var body: some View {
         HStack(spacing: 16) {
@@ -24,7 +24,7 @@ struct ListRow: View {
                 .multilineTextAlignment(.leading)
             Spacer()
         }
-        .foregroundColor(hasNoImage ? .gray : .primary)
+        .foregroundColor(hasImage ? .primary : .gray )
     }
 }
 

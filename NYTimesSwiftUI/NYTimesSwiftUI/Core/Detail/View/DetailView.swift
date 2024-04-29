@@ -35,7 +35,6 @@ private extension DetailView {
                         case .empty:
                             Rectangle()
                                 .fill(.ultraThinMaterial)
-                                .frame(maxHeight: 300)
                                 .overlay { ProgressView() }
                         case .success(let image):
                             image
@@ -44,15 +43,14 @@ private extension DetailView {
                         case .failure( _):
                             Image("emptyState")
                                 .resizable()
-                                .aspectRatio(contentMode: .fit)
-                                .frame(maxHeight: 300)
+                                .aspectRatio(contentMode: .fill)
                         @unknown default:
                             Image("emptyState")
                                 .resizable()
-                                .aspectRatio(contentMode: .fit)
-                                .frame(maxHeight: 300)
+                                .aspectRatio(contentMode: .fill)
                     }
                 }
+                .frame(maxHeight: 300)
             } else {
                 Image("emptyState")
                     .resizable()

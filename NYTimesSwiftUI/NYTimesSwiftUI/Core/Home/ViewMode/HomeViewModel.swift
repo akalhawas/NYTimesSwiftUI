@@ -21,6 +21,10 @@ class HomeViewModel: ObservableObject {
 
     var isLoading: Bool { viewState == .loading }
     
+    enum ViewState {
+        case loading, finished
+    }
+    
     init(articleAPIService: ArticleAPIService) {
         self.articleAPIService = articleAPIService
         addSubscribers()
@@ -40,10 +44,6 @@ extension HomeViewModel {
                 self?.viewState = .finished
                 self?.articles = returnedArticles
             }.store(in: &subscribers)
-    }
-    
-    enum ViewState {
-        case loading, finished
     }
     
     func reloadData(){

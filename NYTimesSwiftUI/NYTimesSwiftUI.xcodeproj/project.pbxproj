@@ -213,9 +213,9 @@
 		0D4470F22BD8736600EED238 /* Core */ = {
 			isa = PBXGroup;
 			children = (
-				0D4470F52BD8739700EED238 /* Components */,
 				0D4470F32BD8738D00EED238 /* Home */,
 				0D4471032BD8845A00EED238 /* Detail */,
+				0D4470F52BD8739700EED238 /* Components */,
 			);
 			path = Core;
 			sourceTree = "<group>";
