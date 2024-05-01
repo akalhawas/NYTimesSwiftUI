@@ -16,9 +16,9 @@ struct HomeView: View {
     var body: some View {
         ZStack{
             VStack(spacing: 0){
-                ScrollView(showsIndicators: false) {
+//                ScrollView(showsIndicators: false) {
                     content
-                }
+//                }
             }
             .navigationTitle("Articles".uppercased())
             .navigationBarItems(trailing: reloadIcon.opacity(vm.hasError ? 1 : 0))
@@ -53,15 +53,16 @@ private extension HomeView {
                     Text("No Values")
                         .frame(maxWidth: .infinity)
                 } else {
-                    ForEach(vm.articles, id: \.id) { article in
-                        NavigationLink(destination: DetailView(article: article)) {
-                            ListRow(title: "\(article.title)", icon: "newspaper", hasImage: !article.imageUrl440.isEmpty)
+                    List {
+                        ForEach(vm.articles, id: \.id) { article in
+                            NavigationLink(destination: DetailView(article: article)) {
+                                ListRow(title: "\(article.title)", icon: "newspaper", hasImage: !article.imageUrl440.isEmpty)
+                            }
                         }
                     }
                 }
             }
         }
-        .padding(20)
     }
     
     var reloadIcon: some View {
