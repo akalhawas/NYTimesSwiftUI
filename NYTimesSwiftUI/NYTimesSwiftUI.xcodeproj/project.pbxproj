@@ -29,6 +29,7 @@
 		0D44711B2BD9741300EED238 /* MockArticleAPIServiceImp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D44711A2BD9741300EED238 /* MockArticleAPIServiceImp.swift */; };
 		0D44711D2BD9745400EED238 /* ArticleAPIServiceImp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D44711C2BD9745400EED238 /* ArticleAPIServiceImp.swift */; };
 		0D4471212BD9750A00EED238 /* MockArticleAPIServiceImp_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D4471202BD9750A00EED238 /* MockArticleAPIServiceImp_Tests.swift */; };
+		0D4471832BE2F9A100EED238 /* APIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D4471822BE2F9A100EED238 /* APIConstants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +76,7 @@
 		0D44711A2BD9741300EED238 /* MockArticleAPIServiceImp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockArticleAPIServiceImp.swift; sourceTree = "<group>"; };
 		0D44711C2BD9745400EED238 /* ArticleAPIServiceImp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleAPIServiceImp.swift; sourceTree = "<group>"; };
 		0D4471202BD9750A00EED238 /* MockArticleAPIServiceImp_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockArticleAPIServiceImp_Tests.swift; sourceTree = "<group>"; };
+		0D4471822BE2F9A100EED238 /* APIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConstants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -189,6 +191,7 @@
 		0D4470E82BD86AF000EED238 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				0D4471812BE2F98600EED238 /* Constants */,
 				0D4470E92BD86AFD00EED238 /* NetworkManager */,
 			);
 			path = Utilities;
@@ -276,6 +279,14 @@
 				0D4471012BD8754500EED238 /* Log.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		0D4471812BE2F98600EED238 /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				0D4471822BE2F9A100EED238 /* APIConstants.swift */,
+			);
+			path = Constants;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -413,6 +424,7 @@
 			files = (
 				0D4470EB2BD86B2600EED238 /* NetworkManager.swift in Sources */,
 				0D4470F92BD873B500EED238 /* HomeView.swift in Sources */,
+				0D4471832BE2F9A100EED238 /* APIConstants.swift in Sources */,
 				0D4471022BD8754500EED238 /* Log.swift in Sources */,
 				0D44711B2BD9741300EED238 /* MockArticleAPIServiceImp.swift in Sources */,
 				0D44711D2BD9745400EED238 /* ArticleAPIServiceImp.swift in Sources */,

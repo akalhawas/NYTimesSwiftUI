@@ -10,7 +10,7 @@ import SwiftUI
 struct HomeView: View {
     
     @EnvironmentObject private var vm: HomeViewModel
-    @State var alertTitle: String = "false"
+    @State var alertTitle: String = ""
     @State var showAlert: Bool = false
     
     var body: some View {
@@ -46,12 +46,12 @@ private extension HomeView {
     
     var articlesRow: some View {
         VStack {
-            if vm.viewState == .finished {
+            if vm.isLoading {
+                ProgressView()
+            } else {
                 if $vm.articles.isEmpty {
-                    HStack {
-                        Text("No Values")
-                            .frame(maxWidth: .infinity)
-                    }
+                    Text("No Values")
+                        .frame(maxWidth: .infinity)
                 } else {
                     ForEach(vm.articles, id: \.id) { article in
                         NavigationLink(destination: DetailView(article: article)) {
@@ -59,8 +59,6 @@ private extension HomeView {
                         }
                     }
                 }
-            } else {
-                ProgressView()
             }
         }
         .padding(20)
@@ -78,7 +76,7 @@ private extension HomeView {
 private extension HomeView {
     private func errorCheck(){
         if vm.hasError {
-            if vm.viewState == .finished {
+            if vm.isFinished {
                 showAlert(title: "\(vm.error!.errorDescription!)! ")
             }
         }

@@ -8,7 +8,7 @@
 import Foundation
 import Combine
 
-class HomeViewModel: ObservableObject {
+final class HomeViewModel: ObservableObject {
         
     @Published var articles: [ArticleModel] = []
     
@@ -16,28 +16,29 @@ class HomeViewModel: ObservableObject {
     @Published private(set) var hasError = false
     @Published private(set) var viewState: ViewState?
             
-    private let articleAPIService: ArticleAPIService
+    private let service: ArticleAPIService
     private var subscribers = Set<AnyCancellable>()
 
     var isLoading: Bool { viewState == .loading }
+    var isFinished: Bool { viewState == .finished }
     
     enum ViewState {
         case loading, finished
     }
     
     init(articleAPIService: ArticleAPIService) {
-        self.articleAPIService = articleAPIService
+        self.service = articleAPIService
         addSubscribers()
     }
 }
 
-// MARK: HomeViewModel
+// MARK: HomeViewModel Functions
 extension HomeViewModel {
     func addSubscribers(){
         reset()
         viewState = .loading
         
-        articleAPIService.fetchArticle()
+        service.fetchArticle()
             .sink { [weak self] completion in
                 self?.handleCompletion(completion: completion)
             } receiveValue: { [weak self] (returnedArticles) in
@@ -51,7 +52,7 @@ extension HomeViewModel {
     }
 }
 
-// MARK: HomeViewModel Private Func
+// MARK: HomeViewModel Private Functions
 private extension HomeViewModel {
     private func handleCompletion(completion: Subscribers.Completion<Error>){
         switch completion {
