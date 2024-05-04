@@ -57,7 +57,6 @@ private extension DetailView {
                     .aspectRatio(contentMode: .fit)
                     .frame(maxHeight: 300)
             }
- 
         }
     }
     

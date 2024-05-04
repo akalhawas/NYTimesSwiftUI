@@ -13,7 +13,7 @@ class DeveloperPreview {
     
     let article = ArticleModel(
         id: 1,
-        assetID: 1,
+        assetId: 1,
         source: "New York Times",
         publishedDate: "2024-04-22",
         updated: "2024-04-22 13:25:58",

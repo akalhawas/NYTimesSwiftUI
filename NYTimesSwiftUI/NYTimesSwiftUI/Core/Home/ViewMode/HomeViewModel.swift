@@ -6,19 +6,25 @@
 //
 
 import Foundation
-import Combine
 
-final class HomeViewModel: ObservableObject {
+protocol HomeViewModel: ObservableObject {
+    func fetchArticles() async
+}
+
+final class HomeViewModelImp: HomeViewModel {
         
     @Published var articles: [ArticleModel] = []
     
-    @Published private(set) var error: NetworkingManager.NetworkingError?
+    @Published private(set) var error: NetworkingError?
     @Published private(set) var hasError = false
     @Published private(set) var viewState: ViewState?
-            
-    private let service: ArticleAPIService
-    private var subscribers = Set<AnyCancellable>()
-
+    
+    #if DEV
+    private(set) var didReset = false
+    #endif
+    
+    private let articleAPIService: ArticleAPIService
+    
     var isLoading: Bool { viewState == .loading }
     var isFinished: Bool { viewState == .finished }
     
@@ -27,46 +33,38 @@ final class HomeViewModel: ObservableObject {
     }
     
     init(articleAPIService: ArticleAPIService) {
-        self.service = articleAPIService
-        addSubscribers()
+        self.articleAPIService = articleAPIService
     }
 }
 
-// MARK: HomeViewModel Functions
-extension HomeViewModel {
-    func addSubscribers(){
+// MARK: HomeViewModel
+extension HomeViewModelImp {
+    @MainActor
+    func fetchArticles() async {
         reset()
-        viewState = .loading
-        
-        service.fetchArticle()
-            .sink { [weak self] completion in
-                self?.handleCompletion(completion: completion)
-            } receiveValue: { [weak self] (returnedArticles) in
-                self?.viewState = .finished
-                self?.articles = returnedArticles
-            }.store(in: &subscribers)
-    }
-    
-    func reloadData(){
-        addSubscribers()
-    }
-}
+//        viewState = .loading
 
-// MARK: HomeViewModel Private Functions
-private extension HomeViewModel {
-    private func handleCompletion(completion: Subscribers.Completion<Error>){
-        switch completion {
-            case .finished: break
-            case .failure(let error):
-                self.hasError = true
-                self.viewState = .finished
-                if let networkingError = error as? NetworkingManager.NetworkingError {
-                    self.error = networkingError
-                } else {
-                    self.error = .custom(error: error)
-                }
+        defer { viewState = .finished }
+        
+        do {
+            self.articles = try await articleAPIService.articles()
+        } catch {
+            self.hasError = true
+            handleError(error: error)
         }
     }
+}
+
+// MARK: HomeViewModel Private Func
+private extension HomeViewModelImp {
+    private func handleError(error: Error){
+        if let networkingError = error as? NetworkingError {
+            self.error = networkingError
+        } else {
+            self.error = .custom(error: error)
+        }
+    }
+    
     
     private func reset() {
         if viewState == .finished {
@@ -75,5 +73,10 @@ private extension HomeViewModel {
             error = nil
             hasError = false
         }
+        
+        #if DEV
+        didReset = true
+        #endif
     }
 }
+

@@ -9,43 +9,41 @@ import SwiftUI
 
 struct HomeView: View {
     
-    @EnvironmentObject private var vm: HomeViewModel
+    @EnvironmentObject private var vm: HomeViewModelImp
     @State var alertTitle: String = ""
     @State var showAlert: Bool = false
+    
+    @State private var hasAppeared = false
     
     var body: some View {
         ZStack{
             VStack(spacing: 0){
-//                ScrollView(showsIndicators: false) {
-                    content
-//                }
+                content
             }
             .navigationTitle("Articles".uppercased())
             .navigationBarItems(trailing: reloadIcon.opacity(vm.hasError ? 1 : 0))
         }
-        .onChange(of: vm.hasError, perform: { value in
-            errorCheck()
-        })
         .alert(isPresented: $showAlert, content: {
             return Alert(title: Text(alertTitle))
         })
+        .task {
+            if !hasAppeared {
+                await vm.fetchArticles()
+                errorCheck()
+                hasAppeared = true
+            }
+        }
     }
 }
 
 #Preview {
     HomeView()
-        .environmentObject(HomeViewModel(articleAPIService: ArticleAPIServiceImp()))
+        .environmentObject(HomeViewModelImp(articleAPIService: ArticleAPIServiceImp()))
 }
 
 private extension HomeView {
     var content: some View {
-        VStack {
-            articlesRow
-        }
-    }
-    
-    var articlesRow: some View {
-        VStack {
+        Group {
             if vm.isLoading {
                 ProgressView()
             } else {
@@ -65,9 +63,13 @@ private extension HomeView {
         }
     }
     
+    
     var reloadIcon: some View {
         Button(action: {
-            vm.reloadData()
+            Task {
+                await vm.fetchArticles()
+                errorCheck()
+            }
         }, label: {
             Image(systemName: "arrow.clockwise")
         })

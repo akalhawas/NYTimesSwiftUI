@@ -102,7 +102,7 @@ struct ArticleResponse: Codable {
 }
 
 struct ArticleModel: Codable {
-    let id, assetID: Int
+    let id, assetId: Int
     let source, publishedDate, updated, section: String
     let byline, type, title, abstract: String
     let media: [MediaModel]
@@ -116,16 +116,6 @@ struct ArticleModel: Codable {
         } else {
             return ""
         }
-    }
-    
-    enum CodingKeys: String, CodingKey {
-        case id
-        case assetID = "asset_id"
-        case source
-        case publishedDate = "published_date"
-        case updated, section
-        case byline, type, title, abstract
-        case media
     }
 }
 

@@ -10,3 +10,7 @@ import Foundation
 enum APIConstants {
     static let baseURL = "https://\(API.baseURL)"
 }
+
+enum EndPointConstants {
+    static let mostPopularArticles = "/svc/mostpopular/v2/emailed/1.json?api-key=n2G4UgyliHFmfxxENCyOst0RGDLOZFGN"
+}

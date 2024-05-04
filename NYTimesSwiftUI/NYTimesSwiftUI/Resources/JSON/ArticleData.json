@@ -1,0 +1,79 @@
+{
+    "status": "OK",
+    "copyright": "Copyright (c) 2024 The New York Times Company.  All Rights Reserved.",
+    "num_results": 20,
+    "results": [
+        {
+            "uri": "nyt://article/f98dffe8-0c2e-5594-a11e-b63072688fc5",
+            "url": "https://www.nytimes.com/2024/05/01/opinion/student-protests-gaza.html",
+            "id": 100000009441438,
+            "asset_id": 100000009441438,
+            "source": "New York Times",
+            "published_date": "2024-05-01",
+            "updated": "2024-05-02 12:35:49",
+            "section": "Opinion",
+            "subsection": "",
+            "nytdsection": "opinion",
+            "adx_keywords": "Palestinians;Israel-Gaza War (2023- );Demonstrations, Protests and Riots;Colleges and Universities;United States International Relations;Humanitarian Aid;Anti-Semitism;Peace Process;Polls and Public Opinion;Netanyahu, Benjamin;Columbia University;Yale University;United States;Israel;Gaza Strip",
+            "column": null,
+            "byline": "By Nicholas Kristof",
+            "type": "Article",
+            "title": "How Protesters Can Actually Help Palestinians",
+            "abstract": "I worry that the more aggressive demonstrators may be hurting the Gazans they’re trying to support.",
+            "des_facet": [
+                "Palestinians",
+                "Israel-Gaza War (2023- )",
+                "Demonstrations, Protests and Riots",
+                "Colleges and Universities",
+                "United States International Relations",
+                "Humanitarian Aid",
+                "Anti-Semitism",
+                "Peace Process",
+                "Polls and Public Opinion"
+            ],
+            "org_facet": [
+                "Columbia University",
+                "Yale University"
+            ],
+            "per_facet": [
+                "Netanyahu, Benjamin"
+            ],
+            "geo_facet": [
+                "United States",
+                "Israel",
+                "Gaza Strip"
+            ],
+            "media": [
+                {
+                    "type": "image",
+                    "subtype": "photo",
+                    "caption": "",
+                    "copyright": "Mark Peterson for The New York Times",
+                    "approved_for_syndication": 1,
+                    "media-metadata": [
+                        {
+                            "url": "https://static01.nyt.com/images/2024/05/02/multimedia/01kristof-vhqw/01kristof-vhqw-thumbStandard.jpg",
+                            "format": "Standard Thumbnail",
+                            "height": 75,
+                            "width": 75
+                        },
+                        {
+                            "url": "https://static01.nyt.com/images/2024/05/02/multimedia/01kristof-vhqw/01kristof-vhqw-mediumThreeByTwo210.jpg",
+                            "format": "mediumThreeByTwo210",
+                            "height": 140,
+                            "width": 210
+                        },
+                        {
+                            "url": "https://static01.nyt.com/images/2024/05/02/multimedia/01kristof-vhqw/01kristof-vhqw-mediumThreeByTwo440.jpg",
+                            "format": "mediumThreeByTwo440",
+                            "height": 293,
+                            "width": 440
+                        }
+                    ]
+                }
+            ],
+            "eta_id": 0
+        }
+    ]
+}
+
