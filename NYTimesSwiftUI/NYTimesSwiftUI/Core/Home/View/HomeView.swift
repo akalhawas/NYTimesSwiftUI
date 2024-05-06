@@ -9,7 +9,7 @@ import SwiftUI
 
 struct HomeView: View {
     
-    @EnvironmentObject private var vm: HomeViewModelImp
+    @EnvironmentObject private var vm: HomeViewModel
     @State var alertTitle: String = ""
     @State var showAlert: Bool = false
     
@@ -38,7 +38,7 @@ struct HomeView: View {
 
 #Preview {
     HomeView()
-        .environmentObject(HomeViewModelImp(articleAPIService: ArticleAPIServiceImp()))
+        .environmentObject(HomeViewModel(articleAPIService: ArticleAPIServiceImp()))
 }
 
 // MARK: Views

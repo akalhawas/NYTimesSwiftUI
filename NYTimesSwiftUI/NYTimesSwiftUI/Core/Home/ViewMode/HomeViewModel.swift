@@ -7,7 +7,7 @@
 
 import Foundation
 
-final class HomeViewModelImp: ObservableObject {
+final class HomeViewModel: ObservableObject {
         
     @Published var articles: [ArticleModel] = []
     
@@ -34,7 +34,7 @@ final class HomeViewModelImp: ObservableObject {
 }
 
 // MARK: HomeViewModel
-extension HomeViewModelImp {
+extension HomeViewModel {
     @MainActor
     func fetchArticles() async {
         reset()
@@ -52,7 +52,7 @@ extension HomeViewModelImp {
 }
 
 // MARK: HomeViewModel Private Func
-private extension HomeViewModelImp {
+private extension HomeViewModel {
     private func handleError(error: Error){
         if let networkingError = error as? NetworkingError {
             self.error = networkingError

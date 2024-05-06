@@ -97,11 +97,25 @@ URL: https://api.nytimes.com/svc/mostpopular/v2/emailed/1.json?api-key=n2G4Ugyli
 }
  */
 
+protocol ArticleProtocol {
+    var id: Int { get }
+    var source: String { get }
+    var publishedDate: String { get }
+    var updated: String { get }
+    var section: String { get }
+    var byline: String { get }
+    var type: String { get }
+    var title: String { get }
+    var abstract: String { get }
+    var imageUrl440: String { get }
+    var media: [MediaModel] { get }
+}
+
 struct ArticleResponse: Decodable {
     let results: [ArticleModel]
 }
 
-struct ArticleModel: Decodable {
+struct ArticleModel: Decodable, ArticleProtocol {
     let id, assetId: Int
     let source, publishedDate, updated, section: String
     let byline, type, title, abstract: String
@@ -137,7 +151,7 @@ struct MediaMetadatumModel: Codable {
 }
 
 extension ArticleModel {
-    static let article = [
+    static let article =
         ArticleModel(
         id: 1,
         assetId: 1,
@@ -157,5 +171,5 @@ extension ArticleModel {
             ])
         ]
     )
-    ]
+    
 }

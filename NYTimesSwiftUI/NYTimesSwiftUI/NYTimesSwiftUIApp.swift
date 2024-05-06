@@ -9,7 +9,7 @@ import SwiftUI
 
 @main
 struct NYTimesSwiftUIApp: App {
-    @StateObject private var vm = HomeViewModelImp(articleAPIService: ArticleAPIServiceImp())
+    @StateObject private var vm = HomeViewModel(articleAPIService: ArticleAPIServiceImp())
     
     var body: some Scene {
         WindowGroup {

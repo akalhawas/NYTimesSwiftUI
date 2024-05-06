@@ -11,14 +11,14 @@ import XCTest
 final class HomeViewModelFailureTests: XCTestCase {
 
     var articleAPIService: ArticleServiceImpFailureMock!
-    var vm: HomeViewModelImp!
+    var vm: HomeViewModel!
     
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
         
         // Gevin
         articleAPIService = ArticleServiceImpFailureMock()
-        vm = HomeViewModelImp(articleAPIService: articleAPIService)
+        vm = HomeViewModel(articleAPIService: articleAPIService)
     }
 
     override func tearDownWithError() throws {

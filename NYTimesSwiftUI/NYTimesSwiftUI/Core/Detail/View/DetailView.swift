@@ -23,7 +23,7 @@ struct DetailView: View {
 }
 
 #Preview {
-    return DetailView(article: ArticleModel.article.first!)
+    return DetailView(article: ArticleModel.article)
 }
 
 // MARK: Views
