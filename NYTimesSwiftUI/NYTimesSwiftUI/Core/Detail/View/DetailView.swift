@@ -23,10 +23,12 @@ struct DetailView: View {
 }
 
 #Preview {
-    return DetailView(article: DeveloperPreview.instance.article)
+    return DetailView(article: ArticleModel.article.first!)
 }
 
+// MARK: Views
 private extension DetailView {
+    
     var headerImage: some View {
         VStack {
             if !article.imageUrl440.isEmpty {
@@ -41,20 +43,14 @@ private extension DetailView {
                                 .resizable()
                                 .aspectRatio(contentMode: .fill)
                         case .failure( _):
-                            Image("emptyState")
-                                .resizable()
-                                .aspectRatio(contentMode: .fill)
+                            NYEmptyView()
                         @unknown default:
-                            Image("emptyState")
-                                .resizable()
-                                .aspectRatio(contentMode: .fill)
+                            NYEmptyView()
                     }
                 }
                 .frame(maxHeight: 300)
             } else {
-                Image("emptyState")
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
+                NYEmptyView()
                     .frame(maxHeight: 300)
             }
         }

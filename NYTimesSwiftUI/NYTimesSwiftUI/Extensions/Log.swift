@@ -8,6 +8,7 @@
 import Foundation
 
 enum Log {
+    
     fileprivate enum LogLevel {
         case info
         case warning

@@ -41,28 +41,31 @@ struct HomeView: View {
         .environmentObject(HomeViewModelImp(articleAPIService: ArticleAPIServiceImp()))
 }
 
+// MARK: Views
 private extension HomeView {
     var content: some View {
         Group {
             if vm.isLoading {
-                ProgressView()
+                LoadingView(title: "Downloading ...")
             } else {
                 if $vm.articles.isEmpty {
-                    Text("No Values")
-                        .frame(maxWidth: .infinity)
+                    NYEmptyView()
                 } else {
-                    List {
-                        ForEach(vm.articles, id: \.id) { article in
-                            NavigationLink(destination: DetailView(article: article)) {
-                                ListRow(title: "\(article.title)", icon: "newspaper", hasImage: !article.imageUrl440.isEmpty)
-                            }
-                        }
-                    }
+                    articleList
                 }
             }
         }
     }
     
+    var articleList: some View {
+        List {
+            ForEach(vm.articles, id: \.id) { article in
+                NavigationLink(destination: DetailView(article: article)) {
+                    ListRow(title: "\(article.title)", icon: "newspaper", hasImage: !article.imageUrl440.isEmpty)
+                }
+            }
+        }
+    }
     
     var reloadIcon: some View {
         Button(action: {
@@ -76,6 +79,7 @@ private extension HomeView {
     }
 }
 
+// MARK: Functions
 private extension HomeView {
     private func errorCheck(){
         if vm.hasError {

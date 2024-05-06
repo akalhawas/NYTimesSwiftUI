@@ -7,11 +7,7 @@
 
 import Foundation
 
-protocol HomeViewModel: ObservableObject {
-    func fetchArticles() async
-}
-
-final class HomeViewModelImp: HomeViewModel {
+final class HomeViewModelImp: ObservableObject {
         
     @Published var articles: [ArticleModel] = []
     
@@ -42,7 +38,7 @@ extension HomeViewModelImp {
     @MainActor
     func fetchArticles() async {
         reset()
-//        viewState = .loading
+        viewState = .loading
 
         defer { viewState = .finished }
         
@@ -64,7 +60,6 @@ private extension HomeViewModelImp {
             self.error = .custom(error: error)
         }
     }
-    
     
     private func reset() {
         if viewState == .finished {

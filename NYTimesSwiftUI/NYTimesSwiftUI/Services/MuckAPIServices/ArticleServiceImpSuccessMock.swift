@@ -8,7 +8,7 @@
 import Foundation
 
 final class ArticleServiceImpSuccessMock: ArticleAPIService {
-    /// Semulate Fetching Articles from local json file
+    /// Semulate fetching articles using muck data from local json file
     /// - Returns: [ArticleModel]
     /// - Note: async throws
     func fetchArticle() async throws -> [ArticleModel] {

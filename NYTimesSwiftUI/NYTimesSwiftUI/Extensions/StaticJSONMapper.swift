@@ -8,7 +8,12 @@
 import Foundation
 
 struct StaticJSONMapper {
-    
+    /// Get local file and decode it
+    /// - Parameters:
+    ///   - file: String
+    ///   - type: T.Type
+    /// - Returns: T
+    /// - Note: throws
     static func decode<T: Decodable>(file: String, type: T.Type) throws -> T {
         
         guard !file.isEmpty,

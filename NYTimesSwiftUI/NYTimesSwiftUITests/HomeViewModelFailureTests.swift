@@ -15,6 +15,7 @@ final class HomeViewModelFailureTests: XCTestCase {
     
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
+        
         // Gevin
         articleAPIService = ArticleServiceImpFailureMock()
         vm = HomeViewModelImp(articleAPIService: articleAPIService)
@@ -26,24 +27,26 @@ final class HomeViewModelFailureTests: XCTestCase {
         vm = nil
     }
 
-    func test_HomeViewModel_download_with_successful_response_articles() async throws {
-        // Check isLoading before and after
+    func test_HomeViewModel_download_with_failure_response_articles() async throws {
+        // Before
         XCTAssertFalse(vm.isLoading, "The view model should not be loading at start")
         XCTAssertFalse(vm.isFinished, "The view model should be finished")
-        XCTAssertFalse(vm.didReset, "The view model should be false")
+        XCTAssertFalse(vm.didReset, "The view model should be didReset false")
+
         
+        // After
         defer {
             XCTAssertFalse(vm.isLoading, "The view model should not be loading at the end")
             XCTAssertTrue(vm.isFinished, "The view model should be finished")
-            XCTAssertTrue(vm.didReset, "The view model should be true")
+            XCTAssertTrue(vm.didReset, "The view model didReset should be true")
         }
  
         // When
         await vm.fetchArticles()
         
         // Then
-        XCTAssertTrue(vm.hasError, "The view model error should be true so it does throw an error")
         XCTAssertNotNil(vm.error, "The view model error should not be nil")
+        XCTAssertTrue(vm.hasError, "The view model error should be true so it does throw an error")
         XCTAssertEqual(vm.error, NetworkingError.failedToDecode, "The error should match")
     }
 }

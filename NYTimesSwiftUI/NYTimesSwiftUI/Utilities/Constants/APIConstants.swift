@@ -12,5 +12,5 @@ enum APIConstants {
 }
 
 enum EndPointConstants {
-    static let mostPopularArticles = "/svc/mostpopular/v2/emailed/1.json?api-key=n2G4UgyliHFmfxxENCyOst0RGDLOZFGN"
+    static let mostPopularArticles = "/svc/mostpopular/v2/viewed/1.json?api-key=n2G4UgyliHFmfxxENCyOst0RGDLOZFGN"
 }

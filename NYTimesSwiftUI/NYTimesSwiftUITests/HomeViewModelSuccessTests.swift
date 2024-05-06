@@ -15,6 +15,7 @@ final class HomeViewModelSuccessTests: XCTestCase {
     
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
+        
         // Gevin
         articleAPIService = ArticleServiceImpSuccessMock()
         vm = HomeViewModelImp(articleAPIService: articleAPIService)
@@ -27,17 +28,18 @@ final class HomeViewModelSuccessTests: XCTestCase {
     }
 
     func test_HomeViewModel_download_with_successful_response_articles() async throws {
-        // Check before
+        // Before
         XCTAssertFalse(vm.isLoading, "The view model should not be loading viewState has to be nil at start")
         XCTAssertFalse(vm.isFinished, "The view model should be finished")
+        XCTAssertFalse(vm.didReset, "The view model didReset should be false")
         
-        // Check before and after
+        // After
         defer {
             XCTAssertFalse(vm.isLoading, "The view model should not be loading it has to be finished")
             XCTAssertTrue(vm.isFinished, "The view model should be finished")
+            XCTAssertTrue(vm.didReset, "The view model didReset should be true")
             XCTAssertFalse(vm.hasError, "The hasError should be false")
             XCTAssertNil(vm.error, "The error should be nil")
-            XCTAssertTrue(vm.didReset, "The view model should be true")
         }
         
         // When
