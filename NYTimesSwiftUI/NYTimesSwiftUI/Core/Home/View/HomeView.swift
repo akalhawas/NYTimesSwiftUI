@@ -48,7 +48,7 @@ private extension HomeView {
             if vm.isLoading {
                 LoadingView(title: "Downloading ...")
             } else {
-                if $vm.articles.isEmpty {
+                if vm.articles.isEmpty {
                     NYEmptyView()
                 } else {
                     articleList

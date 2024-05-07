@@ -16,7 +16,6 @@
 		0D4470E12BD8686600EED238 /* NYTimesSwiftUI-QA.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 0D4470E02BD8686600EED238 /* NYTimesSwiftUI-QA.xcconfig */; };
 		0D4470E32BD8688200EED238 /* NYTimesSwiftUI-Prod.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 0D4470E22BD8688200EED238 /* NYTimesSwiftUI-Prod.xcconfig */; };
 		0D4470E62BD869DF00EED238 /* ConfigrationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D4470E52BD869DF00EED238 /* ConfigrationManager.swift */; };
-		0D4470EB2BD86B2600EED238 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D4470EA2BD86B2600EED238 /* NetworkManager.swift */; };
 		0D4470EE2BD86B6A00EED238 /* ArticleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D4470ED2BD86B6A00EED238 /* ArticleModel.swift */; };
 		0D4470F92BD873B500EED238 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D4470F82BD873B500EED238 /* HomeView.swift */; };
 		0D4470FB2BD873C100EED238 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D4470FA2BD873C100EED238 /* HomeViewModel.swift */; };
@@ -70,7 +69,6 @@
 		0D4470E22BD8688200EED238 /* NYTimesSwiftUI-Prod.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "NYTimesSwiftUI-Prod.xcconfig"; sourceTree = "<group>"; };
 		0D4470E42BD8699D00EED238 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		0D4470E52BD869DF00EED238 /* ConfigrationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigrationManager.swift; sourceTree = "<group>"; };
-		0D4470EA2BD86B2600EED238 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		0D4470ED2BD86B6A00EED238 /* ArticleModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleModel.swift; sourceTree = "<group>"; };
 		0D4470F82BD873B500EED238 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		0D4470FA2BD873C100EED238 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
@@ -145,7 +143,6 @@
 				0D4470F22BD8736600EED238 /* Core */,
 				0D4470E72BD86AE600EED238 /* Services */,
 				0D4470EC2BD86B5F00EED238 /* Model */,
-				0D4470E82BD86AF000EED238 /* Utilities */,
 				0D4471092BD8891800EED238 /* Extensions */,
 				0D44721F2BE68D3C00EED238 /* Resources */,
 				0D4470DD2BD867F400EED238 /* Configration */,
@@ -201,24 +198,6 @@
 				0D44720D2BE68AAC00EED238 /* MuckAPIServices */,
 			);
 			path = Services;
-			sourceTree = "<group>";
-		};
-		0D4470E82BD86AF000EED238 /* Utilities */ = {
-			isa = PBXGroup;
-			children = (
-				0D4470E92BD86AFD00EED238 /* NetworkManager */,
-				0D4471812BE2F98600EED238 /* Constants */,
-			);
-			path = Utilities;
-			sourceTree = "<group>";
-		};
-		0D4470E92BD86AFD00EED238 /* NetworkManager */ = {
-			isa = PBXGroup;
-			children = (
-				0D4470EA2BD86B2600EED238 /* NetworkManager.swift */,
-				0D4472102BE68B8E00EED238 /* NetworkingError.swift */,
-			);
-			path = NetworkManager;
 			sourceTree = "<group>";
 		};
 		0D4470EC2BD86B5F00EED238 /* Model */ = {
@@ -293,6 +272,8 @@
 		0D4471092BD8891800EED238 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				0D4471812BE2F98600EED238 /* Constants */,
+				0D4472102BE68B8E00EED238 /* NetworkingError.swift */,
 				0D4471012BD8754500EED238 /* Log.swift */,
 				0D4472122BE68BE400EED238 /* NYLocalFileDecoder.swift */,
 				0D4472372BEA0DEC00EED238 /* NYDecoder.swift */,
@@ -469,7 +450,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0D4470EB2BD86B2600EED238 /* NetworkManager.swift in Sources */,
 				0D4470F92BD873B500EED238 /* HomeView.swift in Sources */,
 				0D4471832BE2F9A100EED238 /* APIConstants.swift in Sources */,
 				0D4472382BEA0DEC00EED238 /* NYDecoder.swift in Sources */,
