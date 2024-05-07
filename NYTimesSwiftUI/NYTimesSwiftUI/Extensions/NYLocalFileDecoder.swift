@@ -1,5 +1,5 @@
 //
-//  StaticJSONMapper.swift
+//  NYLocalFileDecoder.swift
 //  NYTimesSwiftUI
 //
 //  Created by ali alhawas on 25/10/1445 AH.

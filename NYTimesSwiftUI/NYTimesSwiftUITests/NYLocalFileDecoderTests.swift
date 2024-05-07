@@ -8,7 +8,7 @@
 import XCTest
 @testable import NYTimesSwiftUI
 
-final class JSONMapperTests: XCTestCase {
+final class NYLocalFileDecoderTests: XCTestCase {
 
     func test_with_valid_json_successfully_decodes() {
         

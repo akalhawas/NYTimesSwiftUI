@@ -30,7 +30,6 @@ final class NetworkingManager {
     static func handleURLResponse(response: URLResponse) throws {
         guard let response = response as? HTTPURLResponse, (200...300) ~= response.statusCode else {
             let statusCode = (response as! HTTPURLResponse).statusCode
-            Log.error("[Status:\(statusCode)] Failure", shouldLogContext: false)
             Log.error("\(NetworkingError.invalidStatusCode(statusCode: statusCode).localizedDescription)")
             throw NetworkingError.invalidStatusCode(statusCode: statusCode)
         }
