@@ -41,8 +41,7 @@ final class ArticleAPIServiceImp: ArticleAPIService {
                 let decoder = JSONDecoder()
                 decoder.keyDecodingStrategy = .convertFromSnakeCase
                 let response = try decoder.decode(ArticleResponse.self, from: data)
-                let articles = response.results
-                return articles
+                return response.results
             } catch {
                 Log.error("\(NetworkingError.failedToDecode)")
                 throw NetworkingError.failedToDecode

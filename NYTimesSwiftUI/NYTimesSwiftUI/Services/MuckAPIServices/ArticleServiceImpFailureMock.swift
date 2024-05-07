@@ -12,7 +12,7 @@ final class ArticleServiceImpFailureMock: ArticleAPIService {
     /// - Returns: [ArticleModel]
     /// - Note: async throws
     func fetchArticle() async throws -> [ArticleModel] {
-        let response = try StaticJSONMapper.decode(file: "", type: ArticleResponse.self)
+        let response = try NYLocalFileDecoder.decode(file: "", type: ArticleResponse.self)
         return response.results
     }
 }

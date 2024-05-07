@@ -46,7 +46,7 @@ final class HomeViewModelSuccessTests: XCTestCase {
         await vm.fetchArticles()
         
         // Then
-        let articles = try StaticJSONMapper.decode(file: "ArticleData", type: ArticleResponse.self).results
+        let articles = try NYLocalFileDecoder.decode(file: "ArticleData", type: ArticleResponse.self).results
         XCTAssertNotNil(vm.articles, "The articles in the view model should not be nil")
         XCTAssertGreaterThan(vm.articles.count, 0, "The article in the view model should return value")
         XCTAssertEqual(vm.articles.count, articles.count, "The response from our MockArticleAPIServiceImp should match")

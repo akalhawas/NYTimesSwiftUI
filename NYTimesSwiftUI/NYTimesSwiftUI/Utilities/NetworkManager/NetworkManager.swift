@@ -17,7 +17,7 @@ final class NetworkingManager {
             Log.info("\(url.absoluteString)", shouldLogContext: false)
             let (data, response) = try await URLSession.shared.data(from: url)
             try handleURLResponse(response: response)
-            try await Task.sleep(nanoseconds: 2_000_000_000)
+//            try await Task.sleep(nanoseconds: 2_000_000_000)
             return data
         } catch {
             throw error

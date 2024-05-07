@@ -25,7 +25,7 @@
 		0D4471132BD8E72F00EED238 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D4471122BD8E72F00EED238 /* DetailView.swift */; };
 		0D4471832BE2F9A100EED238 /* APIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D4471822BE2F9A100EED238 /* APIConstants.swift */; };
 		0D4472112BE68B8E00EED238 /* NetworkingError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D4472102BE68B8E00EED238 /* NetworkingError.swift */; };
-		0D4472132BE68BE400EED238 /* StaticJSONMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D4472122BE68BE400EED238 /* StaticJSONMapper.swift */; };
+		0D4472132BE68BE400EED238 /* NYLocalFileDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D4472122BE68BE400EED238 /* NYLocalFileDecoder.swift */; };
 		0D44721A2BE68C9B00EED238 /* HomeViewModelSuccessTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D4472192BE68C9B00EED238 /* HomeViewModelSuccessTests.swift */; };
 		0D44721C2BE68CAE00EED238 /* HomeViewModelFailureTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D44721B2BE68CAE00EED238 /* HomeViewModelFailureTests.swift */; };
 		0D44721E2BE68CC000EED238 /* JSONMapperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D44721D2BE68CC000EED238 /* JSONMapperTests.swift */; };
@@ -78,7 +78,7 @@
 		0D4471122BD8E72F00EED238 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		0D4471822BE2F9A100EED238 /* APIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConstants.swift; sourceTree = "<group>"; };
 		0D4472102BE68B8E00EED238 /* NetworkingError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingError.swift; sourceTree = "<group>"; };
-		0D4472122BE68BE400EED238 /* StaticJSONMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StaticJSONMapper.swift; sourceTree = "<group>"; };
+		0D4472122BE68BE400EED238 /* NYLocalFileDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NYLocalFileDecoder.swift; sourceTree = "<group>"; };
 		0D4472192BE68C9B00EED238 /* HomeViewModelSuccessTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModelSuccessTests.swift; sourceTree = "<group>"; };
 		0D44721B2BE68CAE00EED238 /* HomeViewModelFailureTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModelFailureTests.swift; sourceTree = "<group>"; };
 		0D44721D2BE68CC000EED238 /* JSONMapperTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONMapperTests.swift; sourceTree = "<group>"; };
@@ -292,7 +292,7 @@
 			isa = PBXGroup;
 			children = (
 				0D4471012BD8754500EED238 /* Log.swift */,
-				0D4472122BE68BE400EED238 /* StaticJSONMapper.swift */,
+				0D4472122BE68BE400EED238 /* NYLocalFileDecoder.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -481,7 +481,7 @@
 				0D44722A2BE6E94900EED238 /* ArticleServiceImpFailureMock.swift in Sources */,
 				0D4470FD2BD873DD00EED238 /* ListRow.swift in Sources */,
 				0D4472322BE9249400EED238 /* NYEmptyView.swift in Sources */,
-				0D4472132BE68BE400EED238 /* StaticJSONMapper.swift in Sources */,
+				0D4472132BE68BE400EED238 /* NYLocalFileDecoder.swift in Sources */,
 				0D44722E2BE902C800EED238 /* LoadingView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

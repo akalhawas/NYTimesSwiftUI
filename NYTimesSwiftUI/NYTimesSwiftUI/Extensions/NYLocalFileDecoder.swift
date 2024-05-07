@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct StaticJSONMapper {
+struct NYLocalFileDecoder {
     /// Get local file and decode it
     /// - Parameters:
     ///   - file: String

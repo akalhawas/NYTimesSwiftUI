@@ -12,9 +12,9 @@ final class JSONMapperTests: XCTestCase {
 
     func test_with_valid_json_successfully_decodes() {
         
-        XCTAssertNoThrow(try StaticJSONMapper.decode(file: "ArticleData", type: ArticleResponse.self), "Mapper shouldn't throw an error")
+        XCTAssertNoThrow(try NYLocalFileDecoder.decode(file: "ArticleData", type: ArticleResponse.self), "Mapper shouldn't throw an error")
         
-        let userResponse = try? StaticJSONMapper.decode(file: "ArticleData", type: ArticleResponse.self)
+        let userResponse = try? NYLocalFileDecoder.decode(file: "ArticleData", type: ArticleResponse.self)
         
         XCTAssertNotNil(userResponse, "User response shouldn't be nil")
         XCTAssertEqual(userResponse?.results.count, 1, "The total number of users should be 1")
@@ -29,9 +29,9 @@ final class JSONMapperTests: XCTestCase {
     }
 
     func test_with_missing_file_error_thrown() {
-        XCTAssertThrowsError(try StaticJSONMapper.decode(file: "", type: ArticleResponse.self), "An error should be thrown")
+        XCTAssertThrowsError(try NYLocalFileDecoder.decode(file: "", type: ArticleResponse.self), "An error should be thrown")
         do {
-            _ = try StaticJSONMapper.decode(file: "", type: ArticleResponse.self)
+            _ = try NYLocalFileDecoder.decode(file: "", type: ArticleResponse.self)
         } catch {
             guard let mappingError = error as? NetworkingError else {
                 XCTFail("This is the wrong type of error for missing files")
@@ -42,9 +42,9 @@ final class JSONMapperTests: XCTestCase {
     }
     
     func test_with_invalid_file_error_thrown() {
-        XCTAssertThrowsError(try StaticJSONMapper.decode(file: "xasd", type: ArticleResponse.self), "An error should be thrown")
+        XCTAssertThrowsError(try NYLocalFileDecoder.decode(file: "xasd", type: ArticleResponse.self), "An error should be thrown")
         do {
-            _ = try StaticJSONMapper.decode(file: "asxd", type: ArticleResponse.self)
+            _ = try NYLocalFileDecoder.decode(file: "asxd", type: ArticleResponse.self)
         } catch {
             guard let mappingError = error as? NetworkingError else {
                 XCTFail("This is the wrong type of error for missing files")
@@ -55,9 +55,9 @@ final class JSONMapperTests: XCTestCase {
     }
     
     func test_with_invalid_json_error_thrown() {
-        XCTAssertThrowsError(try StaticJSONMapper.decode(file: "SingleArticleData", type: ArticleResponse.self), "An error should be thrown")
+        XCTAssertThrowsError(try NYLocalFileDecoder.decode(file: "SingleArticleData", type: ArticleResponse.self), "An error should be thrown")
         do {
-            _ = try StaticJSONMapper.decode(file: "SingleArticleData", type: ArticleResponse.self)
+            _ = try NYLocalFileDecoder.decode(file: "SingleArticleData", type: ArticleResponse.self)
         } catch {
             if error is NetworkingError {
                 XCTFail("Got the wrong type of error, expecting a system decoding error")
