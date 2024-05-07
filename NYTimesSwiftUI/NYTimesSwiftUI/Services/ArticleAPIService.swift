@@ -8,10 +8,6 @@
 import Foundation
 
 // MARK: Abstrtaction
-// Applying the Abstraction Hide the logic
-// Applying the dependency inversion Hide the logic
-// Applying solid princples instead of concrate class
-// Better Reusability Testability, Easier Maintenance and Modification
 protocol ArticleAPIService {
     func fetchArticle() async throws -> [ArticleModel]
 }

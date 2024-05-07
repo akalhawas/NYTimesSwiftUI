@@ -152,7 +152,7 @@ extension ArticleModel {
                 MediaModel(mediaMetadata: [
                     MediaMetadatumModel(url: "https://static01.nyt.com/images/2024/04/16/multimedia/00birdflu-mammals-01-zktq/00birdflu-mammals-01-zktq-thumbStandard.jpg", format: "Standard Thumbnail", width: 75, height: 75),
                     MediaMetadatumModel(url: "https://static01.nyt.com/images/2024/04/16/multimedia/00birdflu-mammals-01-zktq/00birdflu-mammals-01-zktq-mediumThreeByTwo210.jpg", format: "mediumThreeByTwo210", width: 210, height: 140),
-                    MediaMetadatumModel(url: "https://static01.nyt.com/images/2024/04/16/multimedia/00birdflu-mammals-01-zktq/00birdflu-mammals-01-zktq-mediumThreeByTwo440.jpg", format: "mediumThreeByTwo440", width: 400, height: 293)
+                    MediaMetadatumModel(url: "https://static01.nyt.com/images/2024/04/16/multimedia/00birdflu-mammals-01-zktq/00birdflu-mammals-01-zktq-mediumThreeByTwo440.jpg", format: "mediumThreeByTwo440", width: 440, height: 293)
                 ])
             ]
         )
